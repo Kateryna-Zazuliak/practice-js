@@ -82,34 +82,83 @@
 //remove(name) видаляє ім'я із колекції
 //update(oldName, newName) змінює ім'я на нове
 
-const names = ["Alla", "Petro", "Max", "Olena", "Boris"];
+// const names = ["Alla", "Petro", "Max", "Olena", "Boris"];
 
-function addName(name) {
-  if (names.includes(name)) return `${name} існує`;
-  names.push(name);
-  return names;
-}
-function remove(name) {
-  const indexElem = names.indexOf(name);
-  if (indexElem === -1) {
-    return "елемент не знайдено";
+// function addName(name) {
+//   if (names.includes(name)) return `${name} існує`;
+//   names.push(name);
+//   return names;
+// }
+// function remove(name) {
+//   const indexElem = names.indexOf(name);
+//   if (indexElem === -1) {
+//     return "елемент не знайдено";
+//   }
+//   names.splice(indexElem, 1);
+//   return names;
+// }
+
+// function update(oldName, newName) {
+//   const indexElem = names.indexOf(oldName);
+//   if (indexElem === -1) {
+//     return "елемент не знайдено";
+//   }
+//   // names[indexElem] = newName;
+//   names.splice(indexElem, 1, newName);
+//   return names;
+// }
+
+// console.log(addName("Alla"));
+
+// console.log(addName("Maxim"));
+// console.log(remove("Petro"));
+// console.log(update("Max", "Marina"));
+
+//Напиши скрипт, який для об'єкту user,
+//послідовно:
+//1 додасть поле mood зі значенням 'happy'
+//2 замінить hobby на 'skydiving'
+//3 замінить значення premium на false
+//4 виводить зміст об'єкта users у форматі
+//'<ключ>:<значення>' використовуя Object.keys() та for...of
+
+// const user = {
+//   name: "John",
+//   age: 20,
+//   hobby: "tenis",
+//   premium: true,
+// };
+
+// user.mood = "happy";
+// user.hobby = "skydiving";
+// user.premium = false;
+
+// for (const key of Object.keys(user)) {
+//   console.log(`${key}:${user[key]}`);
+// }
+
+//3. Напишіть ф-цію calcTotalPrice(fruits, fruitName),
+//яка приймає массив об'єктів і
+//рядок з назвою фрукта.
+//Функція рахує і повертає загальну вартість фрукта
+//з таким ім'ям, ціною та кількістю з об'єкта
+
+const fruits = [
+  { name: "Яблуко", price: 45, quantity: 7 },
+  { name: "Апельсин", price: 60, quantity: 4 },
+  { name: "Банан", price: 125, quantity: 8 },
+  { name: "Груша", price: 350, quantity: 2 },
+  { name: "Виноград", price: 440, quantity: 3 },
+];
+
+function calcTotalPrice(fruits, fruitName) {
+  let totalPrice = 0;
+  for (const fruit of fruits) {
+    if (fruit.name === fruitName) {
+      totalPrice += fruit.price * fruit.quantity;
+    }
   }
-  names.splice(indexElem, 1);
-  return names;
+  return totalPrice;
 }
 
-function update(oldName, newName) {
-  const indexElem = names.indexOf(oldName);
-  if (indexElem === -1) {
-    return "елемент не знайдено";
-  }
-  // names[indexElem] = newName;
-  names.splice(indexElem, 1, newName);
-  return names;
-}
-
-console.log(addName("Alla"));
-
-console.log(addName("Maxim"));
-console.log(remove("Petro"));
-console.log(update("Max", "Marina"));
+console.log(calcTotalPrice(fruits, "Яблуко"));
