@@ -143,22 +143,47 @@
 //Функція рахує і повертає загальну вартість фрукта
 //з таким ім'ям, ціною та кількістю з об'єкта
 
-const fruits = [
-  { name: "Яблуко", price: 45, quantity: 7 },
-  { name: "Апельсин", price: 60, quantity: 4 },
-  { name: "Банан", price: 125, quantity: 8 },
-  { name: "Груша", price: 350, quantity: 2 },
-  { name: "Виноград", price: 440, quantity: 3 },
-];
+// const fruits = [
+//   { name: "Яблуко", price: 45, quantity: 7 },
+//   { name: "Апельсин", price: 60, quantity: 4 },
+//   { name: "Банан", price: 125, quantity: 8 },
+//   { name: "Груша", price: 350, quantity: 2 },
+//   { name: "Виноград", price: 440, quantity: 3 },
+// ];
 
-function calcTotalPrice(fruits, fruitName) {
-  let totalPrice = 0;
-  for (const fruit of fruits) {
-    if (fruit.name === fruitName) {
-      totalPrice += fruit.price * fruit.quantity;
-    }
-  }
-  return totalPrice;
-}
+// function calcTotalPrice(fruits, fruitName) {
+//   let totalPrice = 0;
+//   for (const fruit of fruits) {
+//     if (fruit.name === fruitName) {
+//       totalPrice += fruit.price * fruit.quantity;
+//     }
+//   }
+//   return totalPrice;
+// }
 
-console.log(calcTotalPrice(fruits, "Яблуко"));
+// console.log(calcTotalPrice(fruits, "Яблуко"));
+
+//4. Створіть об'єкт calculator з трьомя методами
+//read(a, b) - приймає два аргумента і зберігає їх
+//як властивості об'єкта
+//sum() повертає сумму збереженних значень (з перевіркою на наявність властивостей в об'єкті)
+//mult() перемножає збереженні значення і повертає результат (з перевіркою на наявність властивостей в об'єкті)
+
+// const calculator = {
+//   read(a, b) {
+//     this.valueA = a;
+//     this.valueB = b;
+//   },
+//   sum() {
+//     if (this.valueA && this.valueB) return this.valueA + this.valueB;
+//     return "NAN";
+//   },
+//   mult() {
+//     if (this.valueA && this.valueB) return this.valueA * this.valueB;
+//     return "NAN";
+//   },
+// };
+
+// console.log(calculator.read(5, 24));
+// console.log(calculator.sum());
+// console.log(calculator.mult());
