@@ -187,3 +187,86 @@
 // console.log(calculator.read(5, 24));
 // console.log(calculator.sum());
 // console.log(calculator.mult());
+
+//5. Напишіть скрипт керування особистим кабінетом інтернет банка
+//Є об'єкт account в якому необхідно реалізувати
+//методи для работи з балансом та історією транзакцій
+//Типів транзакцій всього два.
+//Можна покласти або зняти гроші з рахунка
+const Transaction = {
+  DEPOSIT: "deposit",
+  WITHDRAW: "withdraw",
+};
+//Кожна транзакція це об'єкт з властивостями id, type, amount
+const account = {
+  //поточний баланс рахунка
+  balance: 0,
+  //Історія транзакцій
+  transactions: [],
+  //Метод створює і повертає об'єкт транзакцій
+  //Приймає сумму і тип транзакцій
+  createTransaction(type, amount) {
+    return {
+      type,
+      amount,
+    };
+  },
+  //Метод відповідає за додавання сумми к балансу.
+  //Приймає сумму транзакціи.
+  //Визиває createTransaction для створення об'єкта транзакціи
+  //після чого додає його в історію транзакцій
+  deposit(amount) {
+    this.balance += amount;
+    const transaction = this.createTransaction(Transaction.DEPOSIT, amount);
+    // transaction.id = Math.random();
+    this.transactions.push({ ...transaction, id: Math.random() });
+  },
+  //Метод відповідає за зняття сумми з балансу.
+  //Приймає сумму транзакціи.
+  //Визиває createTransaction для створення об'єкта транзакціи
+  //після чого додає його в історю транзакцій
+  //Якщо amount більше ніж поточний баланс, виводимо повідомлення про те,
+  //що недостатньо коштів на рахунку
+  withdraw(amount) {
+    if (amount > this.balance)
+      return console.log("недостатньо коштів на рахунку");
+    this.balance -= amount;
+    const transaction = this.createTransaction(Transaction.WITHDRAW, amount);
+    // transaction.id = Math.random();
+    this.transactions.push({ ...transaction, id: 1234 });
+  },
+  //Метод повертає поточний баланс
+  getBalance() {
+    return `На вашому рахунку ${this.balance} коштів`;
+  },
+  //Метод шукає і повертає об'єкт транзакціи по id
+  getTransactionDetails(id) {
+    for (const transaction of this.transactions) {
+      if (transaction.id === id) {
+        return transaction;
+      }
+    }
+  },
+  //Метод повертає кількіств коштів вказаного типу
+  //транзакціи зі всієї історії транзакцій
+  getTransactionType(type) {
+    let total = 0;
+    for (const transaction of this.transactions) {
+      if (transaction.type === type) {
+        total += transaction.amount;
+      }
+    }
+    return total;
+  },
+};
+
+account.deposit(300);
+account.deposit(500);
+account.deposit(800);
+
+account.withdraw(200);
+account.withdraw(2000);
+console.log(account);
+console.log(account.getBalance());
+console.log(account.getTransactionDetails(1234));
+console.log(account.getTransactionType(Transaction.DEPOSIT));
