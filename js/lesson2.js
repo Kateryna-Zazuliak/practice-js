@@ -38,7 +38,7 @@
 //      //   }
 //  //   }
 //     //return "Користувач не знайден";
-    
+
 //     return logins.includes(login) ? "Доступ дозволено" : "Користувач не знайден";
 // }
 
@@ -62,17 +62,54 @@
 //аргументів і повертає їхнє середнє значення.
 //Додати перевірку, що аргументи це числа.
 
-function caclculateAverage() {
-    let res = 0;
-    let count = 0;
-    for (const arg of arguments) {
-        if (typeof arg === 'number') {
-            res += arg;
-            count++;
-        }
-    }
-    if (count === 0) return 0;
-    return res / count;
+// function caclculateAverage() {
+//     let res = 0;
+//     let count = 0;
+//     for (const arg of arguments) {
+//         if (typeof arg === 'number') {
+//             res += arg;
+//             count++;
+//         }
+//     }
+//     if (count === 0) return 0;
+//     return res / count;
+// }
+
+// console.log(caclculateAverage(true, 'hello'));
+
+//Напишіть функції для роботи з масивом
+//add(name) додає ім'я до кінця колекції
+//remove(name) видаляє ім'я із колекції
+//update(oldName, newName) змінює ім'я на нове
+
+const names = ["Alla", "Petro", "Max", "Olena", "Boris"];
+
+function addName(name) {
+  if (names.includes(name)) return `${name} існує`;
+  names.push(name);
+  return names;
+}
+function remove(name) {
+  const indexElem = names.indexOf(name);
+  if (indexElem === -1) {
+    return "елемент не знайдено";
+  }
+  names.splice(indexElem, 1);
+  return names;
 }
 
-console.log(caclculateAverage(true, 'hello'));
+function update(oldName, newName) {
+  const indexElem = names.indexOf(oldName);
+  if (indexElem === -1) {
+    return "елемент не знайдено";
+  }
+  // names[indexElem] = newName;
+  names.splice(indexElem, 1, newName);
+  return names;
+}
+
+console.log(addName("Alla"));
+
+console.log(addName("Maxim"));
+console.log(remove("Petro"));
+console.log(update("Max", "Marina"));
