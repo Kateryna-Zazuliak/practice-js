@@ -108,14 +108,48 @@ const users = [
 // console.log(getUsersWithGender(users, 'male')); //
 // ['Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson']
 
-function getUserGender(users, gender) {
-  // return users
-  //   .filter((user) => user.gender === gender)
-  //   .map((user) => user.name);
-  return users.reduce(
-    (names, user) => (user.gender === gender ? [...names, user.name] : names),
-    []
-  );
-}
+// function getUserGender(users, gender) {
+//   // return users
+//   //   .filter((user) => user.gender === gender)
+//   //   .map((user) => user.name);
+//   return users.reduce(
+//     (names, user) => (user.gender === gender ? [...names, user.name] : names),
+//     []
+//   );
+// }
 
-console.log(getUserGender(users, "male"));
+// console.log(getUserGender(users, "male"));
+
+
+
+// Отримати масив всіх навичок усіх користувачів (поле skills), при цьому не повинно бути
+// повторювань навичок і вони мають бути відсортовані в алфавітному порядку.
+// console.log(getSortedUniqueSkills(users));
+// [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud',
+// 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
+
+// function getSortedUniqueSkills(users) {
+//   return users.flatMap(user => user.skills).filter((user, index, array) => array.indexOf(user) === index).toSorted((a, b) => a.localeCompare(b));
+// }
+// console.log(getSortedUniqueSkills(users));
+
+//Створити статистику - об'єкт, у якому вказується кількість тегів
+// const tweets = [
+//   { id: "000", likes: 5, tags: ["js", "nodejs"] },
+//   { id: "001", likes: 2, tags: ["html", "css"] },
+//   { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+//   { id: "003", likes: 8, tags: ["css", "react"] },
+//   { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+// ];
+
+// const stats = {}
+
+// tweets.flatMap(tweet => tweet.tags).forEach(tag => {
+//   if (!stats[tag]) {
+//     stats[tag] = 1;
+//   } else {
+//     stats[tag] += 1;
+//   }
+// })
+
+// console.log(stats);
