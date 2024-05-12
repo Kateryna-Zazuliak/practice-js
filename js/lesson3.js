@@ -120,8 +120,6 @@ const users = [
 
 // console.log(getUserGender(users, "male"));
 
-
-
 // Отримати масив всіх навичок усіх користувачів (поле skills), при цьому не повинно бути
 // повторювань навичок і вони мають бути відсортовані в алфавітному порядку.
 // console.log(getSortedUniqueSkills(users));
@@ -153,3 +151,35 @@ const users = [
 // })
 
 // console.log(stats);
+
+//2. Напиши класс Client який створює об'єкт
+//із властивостями login, email
+//Об'яви приватні властивості #login і #email,
+//доступ до яких зроби через геттер и сеттер:
+// get getClientData() має повертати об'єкт з переліченими властивостями
+// set changeEmail(newEmail) перезаписує пошту користувача
+
+// class Client {
+//   #login;
+//   #email;
+
+//   constructor(login, email) {
+//     this.#login = login;
+//     this.#email = email;
+//   }
+
+//   get getClientData() {
+//     return { clientLogin: this.#login, clientEmail: this.#email };
+//   }
+
+//   set changeEmail(newEmail) {
+//     this.#email = newEmail;
+//   }
+// }
+
+// const client = new Client("hgjf", "gfdsa@gmail.com");
+
+// console.log(client.getClientData);
+// client.changeEmail = "hhgj@MediaMetadata.ua";
+
+// console.log(client.getClientData.clientEmail);
