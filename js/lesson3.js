@@ -210,7 +210,7 @@ const users = [
 //     this.items = this.items.filter(note => note.text !== noteText)
 //   }
 //   updatePriority(noteText, newPriority) {
-//     const note = this.items.find(note => note.text === noteText) 
+//     const note = this.items.find(note => note.text === noteText)
 //     if (note) note.priority = newPriority;
 //   }
 //   getAllNotes() {
@@ -289,22 +289,54 @@ const users = [
 // "<name> logged in" та "<name> failed to log in" відповідно
 // зроби виклик функції askPassword, прив'язавши в якості аргументів методи об'єкта
 
-function askPassword(ok, fail) {
-  let password = prompt("Password?");
-  if (password === "admin") ok();
-  else fail();
+// function askPassword(ok, fail) {
+//   let password = prompt("Password?");
+//   if (password === "admin") ok();
+//   else fail();
+// }
+
+// const user = {
+//   name: 'John',
+
+//   loginOk() {
+//     console.log(`${this.name} logged in`);
+//   },
+
+//   loginFail() {
+//     console.log(`${this.name} failed to log in`);
+//   },
+// }
+
+// askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
+
+/// Даний словник із міст та дат виступів рок-групи
+/// Необхідно перетворити словник (key-value) на масив із назв міст
+/// Виведення міст має бути у хронологічному порядку
+/// Міста у яких концерт вже пройшов потрібно виключити
+/// Результат ["Київ", "Умань", "Одеса"]
+// const concerts = {
+//   Київ: new Date("2024-08-01"),
+//   Умань: new Date("2024-07-02"),
+//   Вінниця: new Date("2023-04-21"),
+//   Одеса: new Date("2024-07-15"),
+//   Хмельницький: new Date("2023-04-18"),
+//   Харків: new Date("2023-07-10"),
+// };
+
+// function getCityName(obj) {
+//  return Object.keys(obj).filter(city => obj[city] > new Date()).toSorted((a, b) => obj[a] - obj[b]);
+// }
+
+// console.log(getCityName(concerts))
+
+// Reverse. Напишіть функцію, яка розгортає масив у зворотному порядку.
+// Будь ласка, не використовуйте array.reverse(), щоб зробити завдання цікавішим.
+const data = [10, 20, 30, 40, 50, 60];
+const alphData = ["a", "b", "c", "d", "e"];
+
+function reverseArr(arr) {
+  return arr.reduce((acc, el) => [el, ...acc],[])
 }
 
-const user = {
-  name: 'John',
-
-  loginOk() {
-    console.log(`${this.name} logged in`);
-  },
-
-  loginFail() {
-    console.log(`${this.name} failed to log in`);
-  },
-}
-
-askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
+console.log(reverseArr(data));
+console.log(reverseArr(alphData));
