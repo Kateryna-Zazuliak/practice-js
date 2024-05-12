@@ -194,46 +194,117 @@ const users = [
 //Додай методи addNote(note), removeNote(noteText)
 //updatePriority(noteText, newPriority)
 
-class Notes {
-  static Priority = {
-    HIGHT: "hight",
-    MIDDLE: "middle",
-    LOW: "low"
-   }
-  constructor() {
-    this.items = [];
-  }
-  addNote(note) {
-    this.items.push(note)
-  }
-  removeNote(noteText) {
-    this.items = this.items.filter(note => note.text !== noteText)
-  }
-  updatePriority(noteText, newPriority) {
-    const note = this.items.find(note => note.text === noteText) 
-    if (note) note.priority = newPriority;
-  }
-  getAllNotes() {
-    this.items.forEach(item => console.log(`Todo:${item.text}, Priority:${item.priority}`))
-  }
+// class Notes {
+//   static Priority = {
+//     HIGHT: "hight",
+//     MIDDLE: "middle",
+//     LOW: "low"
+//    }
+//   constructor() {
+//     this.items = [];
+//   }
+//   addNote(note) {
+//     this.items.push(note)
+//   }
+//   removeNote(noteText) {
+//     this.items = this.items.filter(note => note.text !== noteText)
+//   }
+//   updatePriority(noteText, newPriority) {
+//     const note = this.items.find(note => note.text === noteText) 
+//     if (note) note.priority = newPriority;
+//   }
+//   getAllNotes() {
+//     this.items.forEach(item => console.log(`Todo:${item.text}, Priority:${item.priority}`))
+//   }
+// }
+
+// const text = new Notes()
+// text.addNote({
+//   text: "test",
+//   priority: Notes.Priority.MIDDLE,
+// })
+// text.addNote({
+//   text: "add",
+//   priority: Notes.Priority.LOW,
+// })
+// text.addNote({
+//   text: "all",
+//   priority: Notes.Priority.HIGHT,
+// })
+
+// text.removeNote("test");
+
+// text.updatePriority("all", Notes.Priority.LOW);
+
+// text.getAllNotes();
+
+
+
+// 4. Створити клас Worker, у якого є властивості name, age, salary.
+// У класу Worker є метод getSalary, який повертає повідомлення
+// "Worker <name> has salary <salary> dollars"
+// Створити клас WorkerPosition, у якого є властивість position
+// і який успадковує клас Worker, додаючи метод getPosition
+// який повертає повідомлення "<name> works as <position>"
+
+
+// class Worker {
+//   constructor(name, age, salary) {
+//     this.name = name;
+//     this.age = age;
+//     this.salary = salary;
+//   }
+
+//   getSalary() {
+//     return `Worker ${this.name} has salary ${this.salary} dollars`;
+//   }
+// }
+
+// class WorkerPosition extends Worker {
+//   constructor(name, age, salary, position) {
+//     super(name, age, salary);
+//     this.position = position;
+//   }
+
+//   getPosition() {
+//     return `${this.name} works as ${this.position}`;
+//   }
+// }
+
+// const copy = new WorkerPosition('John', 30, 1000, 'accountant');
+// console.log(copy);
+// console.log(copy.getSalary());
+// console.log(copy.getPosition());
+
+
+// 4. Функція askPassword приймає 2 колбека і викликає 1 із них в залежності від password
+// function askPassword(ok, fail) {
+//   let password = prompt("Password?");
+//   if (password === "admin") ok();
+//   else fail();
+// }
+// Створи об 'єкт user з властивостю name і двома методами
+// loginOk() і loginFail()
+// ці методи виводять в консоль повідомлення у форматі
+// "<name> logged in" та "<name> failed to log in" відповідно
+// зроби виклик функції askPassword, прив'язавши в якості аргументів методи об'єкта
+
+function askPassword(ok, fail) {
+  let password = prompt("Password?");
+  if (password === "admin") ok();
+  else fail();
 }
 
-const text = new Notes()
-text.addNote({
-  text: "test",
-  priority: Notes.Priority.MIDDLE,
-})
-text.addNote({
-  text: "add",
-  priority: Notes.Priority.LOW,
-})
-text.addNote({
-  text: "all",
-  priority: Notes.Priority.HIGHT,
-})
+const user = {
+  name: 'John',
 
-text.removeNote("test");
+  loginOk() {
+    console.log(`${this.name} logged in`);
+  },
 
-text.updatePriority("all", Notes.Priority.LOW);
+  loginFail() {
+    console.log(`${this.name} failed to log in`);
+  },
+}
 
-text.getAllNotes();
+askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
