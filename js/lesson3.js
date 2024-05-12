@@ -1,5 +1,3 @@
-
-
 const users = [
   {
     id: "701b29c3-b35d-4cf1-a5f6-8b12b29a5081",
@@ -37,7 +35,7 @@ const users = [
     gender: "male",
     age: 24,
   },
-{
+  {
     id: "249b6175-5c30-44c6-b154-f120923736f5",
     name: "Elma Head",
     email: "elmahead@omatom.com",
@@ -73,7 +71,7 @@ const users = [
     gender: "male",
     age: 38,
   },
-{
+  {
     id: "e1bf46ab-7168-491e-925e-f01e21394812",
     name: "Sheree Anthony",
     email: "shereeanthony@kog.com",
@@ -93,15 +91,31 @@ const users = [
 // *зробити функцію універсальною, щоб вона повертала
 // масив будь-якої заданої властивості
 
-function getUserNames(users) {
-    return users.map(user => user.name);
-       
+// function getUserNames(users) {
+//     return users.map(user => user.name);
+
+// }
+// console.log(getUserNames(users));
+
+// function newGetUserNames(users, value) {
+//     return users.map(user => user[value]);
+
+// }
+// console.log(newGetUserNames(users, "email"));
+// console.log(newGetUserNames(users,"age"));
+
+// Отримати масив імен користувачів по полю (поле gender)
+// console.log(getUsersWithGender(users, 'male')); //
+// ['Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson']
+
+function getUserGender(users, gender) {
+  // return users
+  //   .filter((user) => user.gender === gender)
+  //   .map((user) => user.name);
+  return users.reduce(
+    (names, user) => (user.gender === gender ? [...names, user.name] : names),
+    []
+  );
 }
-console.log(getUserNames(users));
-    
-function newGetUserNames(users, value) {
-    return users.map(user => user[value]);
-    
-}
-console.log(newGetUserNames(users, "email"));
-console.log(newGetUserNames(users,"age"));
+
+console.log(getUserGender(users, "male"));
