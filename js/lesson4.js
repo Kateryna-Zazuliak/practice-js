@@ -37,32 +37,93 @@
 // Створити невелику гру
 // Спочатку на екрані з'являється якась фігура рандомного коліру в рандомному місті
 // Натискаючі на фігуру, вона змінює свою форму, колір, місце розташування
-const forms = [
-  "width: 100px; height: 100px; border-width: 1px;",
-  "width: 100px; height: 100px; border-radius: 50%;",
-  "width: 150px; height: 100px; border-width: 1px;",
-  "width: 200px; height: 100px; border-radius: 100px / 50px; ",
-  "width: 150px; height: 100px; transform: skew(20deg)",
-];
+// const forms = [
+//   "width: 100px; height: 100px; border-width: 1px;",
+//   "width: 100px; height: 100px; border-radius: 50%;",
+//   "width: 150px; height: 100px; border-width: 1px;",
+//   "width: 200px; height: 100px; border-radius: 100px / 50px; ",
+//   "width: 150px; height: 100px; transform: skew(20deg)",
+// ];
 
-const figure = document.createElement('div');
-changeFigureHandler() 
-document.body.append(figure);
-figure.addEventListener('click', changeFigureHandler);
+// const figure = document.createElement('div');
+// changeFigureHandler() 
+// document.body.append(figure);
+// figure.addEventListener('click', changeFigureHandler);
 
-function changeFigureHandler() {
-    const randomFigure = forms[randomither(forms.length)];
-    figure.style.cssText = randomFigure;
-    figure.style.backgroundColor = getRandomHexColor();
-    figure.style.position = 'absolute';
-    figure.style.left = `${randomither(100)}%`;
-    figure.style.top = `${randomither(100)}%`;
-}
+// function changeFigureHandler() {
+//     const randomFigure = forms[randomither(forms.length)];
+//     figure.style.cssText = randomFigure;
+//     figure.style.backgroundColor = getRandomHexColor();
+//     figure.style.position = 'absolute';
+//     figure.style.left = `${randomither(100)}%`;
+//     figure.style.top = `${randomither(100)}%`;
+// }
 
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
-function randomither(max) {
-  return Math.floor(Math.random() * max);
-}
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+// }
+// function randomither(max) {
+//   return Math.floor(Math.random() * max);
+// }
+
+// Створити червоний квадрат розміром 50 на 50 рх
+// Додати кнопку "Зменшити", яка робить квадрат менше на 10 пікселів
+// Додати кнопку "Збільшити", яка робить його більше на 10 пікселів.
+
+ 
+// let size = 50;
+
+// const markup = `<div class="box" style="height: ${size}px; width: ${size}px; background-color: tomato;" >
+//     </div>
+
+//     <button class="incr-btn" type="button">
+// Збільшити
+//     </button>
+//     <button class="decr-btn" type="button">
+// Зменшити
+//     </button>`
+
+// document.body.insertAdjacentHTML('afterbegin', markup);
+
+
+// const box = document.querySelector(".box");
+// const incrBtn = document.querySelector(".incr-btn");
+// const decrBtn = document.querySelector(".decr-btn");
+
+
+// incrBtn.addEventListener("click", incrBoxHandler);
+// decrBtn.addEventListener("click", decrBoxHandler);
+
+// function incrBoxHandler() {
+//   size += 10;
+//   box.style.width = `${size}px`;
+//   box.style.height = `${size}px`;
+// }
+// function decrBoxHandler() {
+
+//   if (size === 10) return;
+//    size -= 10;
+//   box.style.width = `${size}px`;
+//   box.style.height = `${size}px`;
+
+//  }
+
+ /*
+Завдання 6
+Натиснувши кнопку "Подвоювати", збільшити значення
+у кожному елементі списку у 2 рази
+*/
+
+
+// const items = document.querySelectorAll(".listItem");
+// const button = document.querySelector("#double");
+
+// button.addEventListener("click", doubleItems);
+
+// function doubleItems() {
+//   items.forEach(item => { item.textContent *= 2})
+// }
+
+
+
 
