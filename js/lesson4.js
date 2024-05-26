@@ -156,3 +156,53 @@
 //     eventThumbElem.innerHTML = "";
 //   }
 // });
+
+// Завдання 16
+//  При натисканні на будь-який рядок у табличці відобразіть
+//  повідомлення з назвою продукту та його ціною.
+//  "Ви вибрали <product> за <price>".
+
+// const productTable = document.querySelector('#productTable');
+// const productMessage = document.querySelector('#productDetails');
+
+// productTable.addEventListener('click', showMessage);
+// function showMessage(event) {
+//     if (event.target.nodeName !== 'TD') return;
+//     const parent = event.target.parentNode;
+//     const product = parent.firstElementChild.textContent;
+//     const price = parent.lastElementChild.textContent;
+//     productMessage.textContent = `Ви вибрали ${product} за ${price}`
+// }
+
+/*
+Завдання 8
+При натисканні на кожну з кнопок підсумовуються значення з data-атрибутів.
+За натисканням на кнопку "Вивести результат" виводиться сума значення, а також статистика з
+інформацією про те, яка кнопка була натиснута скільки разів.
+*/
+const buttons = document.querySelector('.statList');
+const resultButton = document.querySelector('#resultButton');
+const resultSection = document.querySelector('#resultSection');
+
+let sum = 0;
+let stats = {};
+buttons.addEventListener('click', countClicks);
+function countClicks(event) {
+    if (event.target.nodeName !== 'BUTTON') return;
+    const key = event.target.textContent;
+    if (stats[key]) stats[key] += 1
+    else stats[key] = 1;
+    const number = Number(event.target.dataset.number);
+    sum += number;
+}
+resultButton.addEventListener('click', showResult);
+function showResult() {
+    let markup = `Загальна кількість ${sum}`;
+    for (const [key, value] of Object.entries(stats)) {
+        markup += `${key} натиснута ${value} разів`
+    }
+    resultSection.textContent = markup;
+    sum = 0;
+    stats = {};
+}
+
