@@ -205,3 +205,4 @@ function showResult() {
     sum = 0;
     stats = {};
 }
+

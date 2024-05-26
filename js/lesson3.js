@@ -331,12 +331,13 @@ const users = [
 
 // Reverse. Напишіть функцію, яка розгортає масив у зворотному порядку.
 // Будь ласка, не використовуйте array.reverse(), щоб зробити завдання цікавішим.
-const data = [10, 20, 30, 40, 50, 60];
-const alphData = ["a", "b", "c", "d", "e"];
+// const data = [10, 20, 30, 40, 50, 60];
+// const alphData = ["a", "b", "c", "d", "e"];
 
-function reverseArr(arr) {
-  return arr.reduce((acc, el) => [el, ...acc],[])
-}
+// function reverseArr(arr) {
+//   return arr.reduce((acc, el) => [el, ...acc],[])
+// }
 
-console.log(reverseArr(data));
-console.log(reverseArr(alphData));
+// console.log(reverseArr(data));
+// console.log(reverseArr(alphData));
+
