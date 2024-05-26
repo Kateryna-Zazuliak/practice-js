@@ -151,4 +151,8 @@
 //     </ul>`;
 
 //   eventThumbElem.insertAdjacentHTML("beforeend", markup);
+
+//   if (code === "Escape" || code === "Backspace") {
+//     eventThumbElem.innerHTML = "";
+//   }
 // });
