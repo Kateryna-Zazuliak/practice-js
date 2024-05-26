@@ -46,7 +46,7 @@
 // ];
 
 // const figure = document.createElement('div');
-// changeFigureHandler() 
+// changeFigureHandler()
 // document.body.append(figure);
 // figure.addEventListener('click', changeFigureHandler);
 
@@ -70,7 +70,6 @@
 // Додати кнопку "Зменшити", яка робить квадрат менше на 10 пікселів
 // Додати кнопку "Збільшити", яка робить його більше на 10 пікселів.
 
- 
 // let size = 50;
 
 // const markup = `<div class="box" style="height: ${size}px; width: ${size}px; background-color: tomato;" >
@@ -85,11 +84,9 @@
 
 // document.body.insertAdjacentHTML('afterbegin', markup);
 
-
 // const box = document.querySelector(".box");
 // const incrBtn = document.querySelector(".incr-btn");
 // const decrBtn = document.querySelector(".decr-btn");
-
 
 // incrBtn.addEventListener("click", incrBoxHandler);
 // decrBtn.addEventListener("click", decrBoxHandler);
@@ -108,12 +105,11 @@
 
 //  }
 
- /*
+/*
 Завдання 6
 Натиснувши кнопку "Подвоювати", збільшити значення
 у кожному елементі списку у 2 рази
 */
-
 
 // const items = document.querySelectorAll(".listItem");
 // const button = document.querySelector("#double");
@@ -124,6 +120,39 @@
 //   items.forEach(item => { item.textContent *= 2})
 // }
 
+/*
+Завдання 13
+Коло має зникати при наведенні на нього.
+При цьому позиція сусідніх кіл має залишатися незмінною.
+*/
 
+// const itemsElem = document.querySelectorAll(".gridItem");
 
+// itemsElem.forEach((item) => {
+//   item.addEventListener("mouseenter", () => {
+//     item.classList.add("hide");
+//   });
+//   item.addEventListener("mouseleave", () => {
+//     item.classList.remove("hide");
+//   });
+// });
 
+// Завдання 14
+// Написати функцію, яка буде створювати список подій клавіатури event.key та event.code
+// Додати класи на список eventList, на елементи eventCode та eventKey
+
+// const eventThumbElem = document.querySelector(".eventThumb");
+
+// document.addEventListener("keydown", ({ key, code }) => {
+//   //   console.log(event.key, event.code);
+//   const markup = `<ul class='eventList'>
+//       <li class="eventCode">${code}</li>
+//       <li class="eventKey">${key}</li>
+//     </ul>`;
+
+//   eventThumbElem.insertAdjacentHTML("beforeend", markup);
+
+//   if (code === "Escape" || code === "Backspace") {
+//     eventThumbElem.innerHTML = "";
+//   }
+// });
